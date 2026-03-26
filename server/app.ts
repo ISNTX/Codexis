@@ -14,11 +14,6 @@ import { log } from "./vite";
 export async function createApp() {
   const app = express();
 
-  // Raw body capture — must be BEFORE express.json() so Stripe + Clerk webhooks work
-  app.use((req: any, _res: any, buf: any, encoding: any) => {
-    // Intentional: this runs as a verify callback inside express.json() below
-  });
-
   // Stripe webhook needs raw body — register BEFORE express.json()
   app.use(
     "/api/stripe/webhook",

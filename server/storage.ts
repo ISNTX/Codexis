@@ -37,6 +37,7 @@ export interface IStorage {
   getPrice(priceId: string): Promise<any>;
   listPrices(active?: boolean): Promise<any[]>;
   getSubscription(subscriptionId: string): Promise<any>;
+  getCustomerInvoices(customerId: string): Promise<any[]>;
 
   // Admin operations
   setUserAdmin(userId: string, isAdmin: boolean): Promise<User | undefined>;
